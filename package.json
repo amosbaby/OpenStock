@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "test:db": "node scripts/test-db.mjs"
+    "test:db": "node scripts/test-db.mjs",
+    "start:aktools": "bash scripts/start-aktools.sh"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",

@@ -16,9 +16,12 @@ const DonatePopupContext = createContext<{
     openDonatePopup: () => {}
 });
 
+import {useLanguage} from "@/context/LanguageContext";
+
 export const useDonatePopup = () => useContext(DonatePopupContext);
 
 const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]}) => {
+    const { t } = useLanguage();
     const pathname = usePathname()
 
     const isActive = (path: string) => {
@@ -35,19 +38,19 @@ const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]})
     return (
         <DonatePopupContext.Provider value={{ openDonatePopup }}>
             <ul className="flex flex-col sm:flex-row p-2 gap-3 sm:gap-10 font-medium">
-            {NAV_ITEMS.map(({href, label}) => {
+            {NAV_ITEMS.map(({href, key}) => {
                 if (href === '/search') return (
                     <li key="search-trigger">
                         <SearchCommand
                             renderAs="text"
-                            label="Search"
+                            label={t('nav.search')}
                             initialStocks={initialStocks}
                         />
                     </li>
                 )
                 return <li key={href}>
                     <Link href={href} className={`hover:text-teal-500 transition-colors ${isActive(href) ? 'text-gray-100' : ''}`}>
-                        {label}
+                        {t(`nav.${key || href.replace('/', '') || 'dashboard'}`)}
                     </Link>
                 </li>
             })}
