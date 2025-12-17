@@ -31,7 +31,7 @@ const Home = async () => {
                 </div>
                 <div className="md-col-span xl:col-span-2">
                     <TradingViewWidget
-                        title={isCN ? "Stock Heatmap" : "Stock Heatmap"}
+                        title={isCN ? "A-Share Heatmap (Top 300)" : "Stock Heatmap"}
                         scriptUrl={`${scriptUrl}stock-heatmap.js`}
                         config={heatmapConfig}
                         height={600}

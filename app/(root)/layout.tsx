@@ -24,8 +24,8 @@ const Layout = async ({ children }: { children : React.ReactNode }) => {
                 {children}
             </div>
 
-            <Footer />
-            <DonatePopup />
+            {/* <Footer /> */}
+            {/* <DonatePopup /> */}
         </main>
     )
 }

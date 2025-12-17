@@ -151,9 +151,24 @@ export const HEATMAP_WIDGET_CONFIG = {
   height: "600",
 };
 
+// CN Heatmap using CSI300 (000300)
 export const CN_HEATMAP_WIDGET_CONFIG = {
-  ...HEATMAP_WIDGET_CONFIG,
-  dataSource: "CSI300", // Try CSI300 for China
+  dataSource: "000300",
+  blockSize: "market_cap_basic",
+  blockColor: "change",
+  grouping: "sector",
+  isTransparent: true,
+  locale: "zh",
+  symbolUrl: "",
+  colorTheme: "dark",
+  exchanges: [],
+  hasTopBar: false,
+  isDataSetEnabled: false,
+  isZoomEnabled: true,
+  hasSymbolTooltip: true,
+  isMonoSize: false,
+  width: "100%",
+  height: "600",
 };
 
 export const TOP_STORIES_WIDGET_CONFIG = {
@@ -169,7 +184,8 @@ export const TOP_STORIES_WIDGET_CONFIG = {
 
 export const CN_TOP_STORIES_WIDGET_CONFIG = {
   ...TOP_STORIES_WIDGET_CONFIG,
-  market: "stock", // TradingView may not strictly separate news by market in this widget, but it respects locale
+  feedMode: "symbol",
+  symbol: "SSE:000001", // Use Shanghai Composite for relevant news
 };
 
 export const MARKET_DATA_WIDGET_CONFIG = {
