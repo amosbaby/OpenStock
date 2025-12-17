@@ -54,7 +54,7 @@ const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]})
                     </Link>
                 </li>
             })}
-            <li key="donate">
+            {/* <li key="donate">
                 <Button
                     onClick={openDonatePopup}
                     className="bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white font-semibold px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 flex items-center gap-2 animate-pulse"
@@ -63,7 +63,7 @@ const NavItems = ({initialStocks}: { initialStocks: StockWithWatchlistStatus[]})
                     <Heart className="h-4 w-4 fill-current" />
                     Donate
                 </Button>
-            </li>
+            </li> */}
         </ul>
         </DonatePopupContext.Provider>
     )

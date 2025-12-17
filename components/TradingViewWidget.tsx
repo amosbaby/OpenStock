@@ -4,6 +4,8 @@ import React, { memo } from 'react';
 import useTradingViewWidget from "@/hooks/useTradingViewWidget";
 import {cn} from "@/lib/utils";
 
+import { useLanguage } from "@/context/LanguageContext";
+
 interface TradingViewWidgetProps {
     title?: string;
     scriptUrl: string;
@@ -13,7 +15,16 @@ interface TradingViewWidgetProps {
 }
 
 const TradingViewWidget = ({ title, scriptUrl, config, height = 600, className }: TradingViewWidgetProps) => {
-    const containerRef = useTradingViewWidget(scriptUrl, config, height);
+    const { language } = useLanguage();
+    const locale = language === 'zh' ? 'zh' : 'en';
+    
+    // Memoize config to prevent reload if locale is same
+    const widgetConfig = React.useMemo(() => ({
+        ...config,
+        locale
+    }), [config, locale]);
+
+    const containerRef = useTradingViewWidget(scriptUrl, widgetConfig, height);
 
     return (
         <div className="w-full">

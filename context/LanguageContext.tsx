@@ -72,7 +72,8 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-    const [language, setLanguage] = useState<Language>('en');
+    // Default to 'zh'
+    const [language, setLanguage] = useState<Language>('zh');
 
     useEffect(() => {
         const match = document.cookie.match(/(^| )openstock-lang=([^;]+)/);
@@ -80,12 +81,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
             const val = match[2];
             if (val === 'en' || val === 'zh') {
                 setLanguage(val as Language);
-            }
-        } else {
-            // Auto-detect browser language
-            const browserLang = navigator.language;
-            if (browserLang.includes('zh')) {
-                setLanguage('zh');
             }
         }
     }, []);

@@ -37,6 +37,7 @@ export const CONDITION_OPTIONS = [
 ];
 
 // TradingView Charts
+// TradingView Charts
 export const MARKET_OVERVIEW_WIDGET_CONFIG = {
   colorTheme: "dark", // dark mode
   dateRange: "12M", // last 12 months
@@ -95,6 +96,42 @@ export const MARKET_OVERVIEW_WIDGET_CONFIG = {
   showChart: true, // display mini chart
 };
 
+export const CN_MARKET_OVERVIEW_WIDGET_CONFIG = {
+  ...MARKET_OVERVIEW_WIDGET_CONFIG,
+  tabs: [
+    {
+      title: "Indices",
+      symbols: [
+        { s: "SSE:000001", d: "上证指数" },
+        { s: "SZSE:399001", d: "深证成指" },
+        { s: "SZSE:399006", d: "创业板指" },
+        { s: "SSE:000300", d: "沪深300" },
+        { s: "SSE:000688", d: "科创50" },
+      ],
+    },
+    {
+      title: "Key Stocks",
+      symbols: [
+        { s: "SSE:600519", d: "贵州茅台" },
+        { s: "SZSE:300750", d: "宁德时代" },
+        { s: "SSE:600036", d: "招商银行" },
+        { s: "SZSE:002594", d: "比亚迪" },
+        { s: "SSE:601318", d: "中国平安" },
+      ],
+    },
+    {
+      title: "Tech/EV",
+      symbols: [
+        { s: "SZSE:002475", d: "立讯精密" },
+        { s: "SZSE:300059", d: "东方财富" },
+        { s: "SSE:600276", d: "恒瑞医药" },
+        { s: "SSE:603259", d: "药明康德" },
+        { s: "SZSE:000858", d: "五粮液" },
+      ],
+    },
+  ],
+};
+
 export const HEATMAP_WIDGET_CONFIG = {
   dataSource: "SPX500",
   blockSize: "market_cap_basic",
@@ -114,6 +151,11 @@ export const HEATMAP_WIDGET_CONFIG = {
   height: "600",
 };
 
+export const CN_HEATMAP_WIDGET_CONFIG = {
+  ...HEATMAP_WIDGET_CONFIG,
+  dataSource: "CSI300", // Try CSI300 for China
+};
+
 export const TOP_STORIES_WIDGET_CONFIG = {
   displayMode: "regular",
   feedMode: "market",
@@ -123,6 +165,11 @@ export const TOP_STORIES_WIDGET_CONFIG = {
   market: "stock",
   width: "100%",
   height: "600",
+};
+
+export const CN_TOP_STORIES_WIDGET_CONFIG = {
+  ...TOP_STORIES_WIDGET_CONFIG,
+  market: "stock", // TradingView may not strictly separate news by market in this widget, but it respects locale
 };
 
 export const MARKET_DATA_WIDGET_CONFIG = {
@@ -165,6 +212,49 @@ export const MARKET_DATA_WIDGET_CONFIG = {
         { name: "NYSE:T", displayName: "At&t Inc" },
         { name: "NYSE:WMT", displayName: "Walmart" },
         { name: "NYSE:V", displayName: "Visa" },
+      ],
+    },
+  ],
+};
+
+export const CN_MARKET_DATA_WIDGET_CONFIG = {
+  title: "A-Share Stocks",
+  width: "100%",
+  height: 600,
+  locale: "zh",
+  showSymbolLogo: true,
+  colorTheme: "dark",
+  isTransparent: false,
+  backgroundColor: "#0F0F0F",
+  symbolsGroups: [
+    {
+      name: "Indices / 核心指数",
+      symbols: [
+        { name: "SSE:000001", displayName: "上证指数" },
+        { name: "SZSE:399001", displayName: "深证成指" },
+        { name: "SZSE:399006", displayName: "创业板指" },
+        { name: "SSE:000300", displayName: "沪深300" },
+        { name: "SSE:000688", displayName: "科创50" },
+      ],
+    },
+    {
+      name: "Top Stocks / 热门个股",
+      symbols: [
+        { name: "SSE:600519", displayName: "贵州茅台" },
+        { name: "SZSE:300750", displayName: "宁德时代" },
+        { name: "SSE:601318", displayName: "中国平安" },
+        { name: "SZSE:000858", displayName: "五粮液" },
+        { name: "SZSE:002594", displayName: "比亚迪" },
+      ],
+    },
+    {
+      name: "Financials / 金融",
+      symbols: [
+        { name: "SSE:600036", displayName: "招商银行" },
+        { name: "SSE:601166", displayName: "兴业银行" },
+        { name: "SSE:600000", displayName: "浦发银行" },
+        { name: "SSE:601398", displayName: "工商银行" },
+        { name: "SSE:601288", displayName: "农业银行" },
       ],
     },
   ],
